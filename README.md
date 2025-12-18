@@ -173,7 +173,7 @@ CREATE TABLE users(
 );
 ```
 
-### Creating relations between two tables.
+### 12. Creating relations between two tables.
 ```
 ALTER TABLE users
 ADD CONSTRAINT fk_users_documentTypes
@@ -182,24 +182,30 @@ REFERENCES documentTypes(Id_docType);
 ```
 
 
-### Disable a relation
+### 13. Disable a relation
 ```
 SET FOREIGN_KEY_CHECKS = 0;
 ```
 
 
-### Enable a relation
+### 14. Enable a relation
 ```
 SET FOREIGN_KEY_CHECKS = 1;
 ```
 
 
-### Show all properties of a table, including relations.
+### 15. Show all properties of a table, including relations.
+```
 SHOW CREATE TABLE users;
+
+-- and
+
 SHOW CREATE TABLE documentTypes;
+```
 
 
 ### Insert new registers
+```
 INSERT INTO users (Name, Lastname, DocId, NumbDoc, NumKids, Salary, Active)
 VALUES
 ('Juan', 'Pérez', 1, '1023456789', 2, 2850000, 1),
@@ -214,23 +220,75 @@ VALUES
 ('Camila', 'Herrera', 1, '1112345678', 1, 3350000, 1),
 ('Miguel', 'Castro', 3, '1123456789', 3, 2250000, 0),
 ('Laura', 'Morales', 1, '1134567890', 2, 3000000, 1);
-
-
-
 ```
 
 
 
-## Agregation Functions
+## 16. Agregation Functions
 
-### 12. To count the number of records:
+### 16.1 To COUNT the number of records in a column or field.
 ```
 SELECT COUNT(*) 
 FROM documentTypes;
 ```
 
+### 16.2 Sumarize (SUM) values of a column or field.
+```
+SELECT SUM(NumKids) AS promedio
+FROM users;
+```
 
 
+### 16.3 Maximum (MAX) value of a column or field.
+```
+SELECT MAX(Salary) AS promedio
+FROM users;
+```
+
+
+### 16.4 Minimum (MIN) value of a column or field.
+```
+SELECT MIN(Salary) AS promedio
+FROM users;
+```
+
+
+### 16.5 Average (AVG) of a column or field.
+```
+SELECT AVG(Salary) AS promedio
+FROM users;
+```
+
+
+### 17. Show unique values (without duplicates)
+```
+SELECT DISTINCT NumKids
+FROM users;
+```
+
+### 18. Limit to n amount or records (LIMIT).
+```
+SELECT * 
+FROM users
+LIMIT 3;
+```
+
+
+### 19. GROUP BY an specific field or column in ASCendent order.
+```
+SELECT *
+FROM users
+ORDER BY NumKids ASC;
+```
+
+
+### 20. GROUP BY an specific field or column in DESCendent order.
+```
+SELECT *
+FROM users
+ORDER BY NumKids DESC
+LIMIT 5;
+```
 
 
 
