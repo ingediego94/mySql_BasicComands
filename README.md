@@ -274,7 +274,7 @@ LIMIT 3;
 ```
 
 
-### 19. GROUP BY an specific field or column in ASCendent order.
+### 19. Order by an specific field or column in ascendent order (ORDER BY - ASC).
 ```
 SELECT *
 FROM users
@@ -282,7 +282,7 @@ ORDER BY NumKids ASC;
 ```
 
 
-### 20. GROUP BY an specific field or column in DESCendent order.
+### 20. Order by an specific field or column in descendent order (ORDER BY - DESC).
 ```
 SELECT *
 FROM users
@@ -290,6 +290,60 @@ ORDER BY NumKids DESC
 LIMIT 5;
 ```
 
+
+### 21. Select only specific fields or columns.
+```
+SELECT Name, Lastname, Salary AS 'Payment Month'
+FROM users;
+```
+
+
+### 22. Select only specific fields or columns ordered desc.
+```
+SELECT Name, Lastname, Salary AS 'Payment Month'
+FROM users
+ORDER BY Salary DESC
+LIMIT 6;
+```
+
+
+### 23. Concatenate columns and alias (CONCAT() - AS)
+```
+SELECT CONCAT(Name, ' ', Lastname) AS 'Full Name', 
+Salary AS 'Payment'
+FROM users;
+```
+
+
+### 24. Filters with where condition (WHERE).
+```
+SELECT * 
+FROM users
+WHERE NumKids = 1;
+```
+
+
+### 25.  Filters with where condition, limits, specific fields and alias (WHERE, LIMIT, AS, CONCAT and OPERATORS).
+```
+SELECT 
+Id_user,
+CONCAT(Name, ' ', Lastname) AS Full_Name,
+Salary
+FROM users
+WHERE Salary >= 2000000 AND Salary <= 4000000
+ORDER BY Salary DESC
+LIMIT 3;
+```
+
+
+
+### 26. Select records between a range (BETWEEN).
+```
+SELECT Name, Salary
+FROM users
+WHERE Salary BETWEEN 1950000 AND 4199999
+ORDER BY Salary;
+```
 
 
 
